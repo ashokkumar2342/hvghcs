@@ -16,7 +16,7 @@ Route::get('/func', function () {
 });
  
 Route::get('/', function () {
-    return redirect()->route('admin.search.voter');
+    return redirect()->route('admin.login');
  
 });
 Route::get('try-demo', 'TryDemoController@index')->name('try.demo');
