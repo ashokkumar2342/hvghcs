@@ -189,4 +189,11 @@ Route::group(['middleware' => 'admin'], function() {
                 
 
  	});
+ 	Route::group(['prefix' => 'report'], function() {
+        Route::get('/', 'ReportController@index')->name('admin.report.index');
+        Route::post('generate', 'ReportController@reportGenerate')->name('admin.report.generate');
+        
+                
+
+ 	});
  });

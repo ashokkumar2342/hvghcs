@@ -62,8 +62,8 @@ class Form3Controller extends Controller
          $Form3->contact_covid_positive=$request->contact_covid_positive; 
          $Form3->home_isolated=$request->home_isolated; 
          $Form3->reported_vhq=$request->reported_vhq; 
-         $Form3->age_less45=$request->age_less45; 
-         $Form3->age_more45=$request->age_more45; 
+         $Form3->age_less45=$request->age_less_45; 
+         $Form3->age_more45=$request->age_more_45; 
          $Form3->comorbid_dm=$request->comorbid_dm; 
          $Form3->comorbid_ht=$request->comorbid_ht; 
          $Form3->comorbid_lung=$request->comorbid_lung; 
