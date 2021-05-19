@@ -58,10 +58,10 @@ class AccountController extends Controller
         return $pdf->stream('user_list.pdf');
      } 
 
-    Public function store(Request $request){ 
+    Public function store(Request $request){ return $request;
         $rules=[
-        'first_name' => 'required|string|min:3|max:50',             
-        'email' => 'required|email|unique:admins',
+        'name' => 'required|string|min:3|max:50',             
+         
         "mobile" => 'required|unique:admins|numeric|digits:10',
         "role_id" => 'required',
         "password" => 'required|min:6|max:15', 
@@ -78,12 +78,10 @@ class AccountController extends Controller
         }
          
     	$accounts = new Admin();
-    	$accounts->first_name = $request->first_name;
-    	$accounts->last_name = $request->last_name;
-    	$accounts->role_id = $request->role_id;
-    	$accounts->email = $request->email;
-    	$accounts->password = bcrypt($request['password']);
+    	$accounts->first_name = $request->name;
     	$accounts->mobile = $request->mobile; 
+    	$accounts->role_id = $request->role_id; 
+    	$accounts->password = bcrypt($request['password']);
     	$accounts->password_plain=$request->password;          
         $accounts->status=1;          
         $accounts->save();
