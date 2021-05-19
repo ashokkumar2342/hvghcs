@@ -87,11 +87,14 @@
                                 <thead>
                                     <tr>
                                         <th class="text-nowrap">States</th>
-                                        <th class="text-nowrap">District</th>
-                                        <th class="text-nowrap">Block MCS</th>
-                                        <th class="text-nowrap">Code</th>
-                                        <th class="text-nowrap">Name (Eng.)</th>
-                                        <th class="text-nowrap">Action</th>
+                                         <th class="text-nowrap">District</th>
+                                         <th class="text-nowrap">Block MCS</th>
+                                         <th class="text-nowrap">Village Code</th>
+                                         <th class="text-nowrap">Village Name</th>
+                                         <th class="text-nowrap">House Holds</th>
+                                         <th class="text-nowrap">Population</th>
+                                         <th class="text-nowrap">CHC ID</th>
+                                         <th class="text-nowrap">PHC ID</th>
 
                                     </tr>
                                 </thead>

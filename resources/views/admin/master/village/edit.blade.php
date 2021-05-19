@@ -19,8 +19,7 @@
               <label for="exampleInputPassword1">Village Name</label>
               <span class="fa fa-asterisk"></span>
               <input type="text" name="village_name" class="form-control" placeholder="Enter Name (English)" maxlength="50" value="{{ $village->name_e }}">
-          </div>
-<<<<<<< HEAD
+          </div> 
           <div class="col-lg-4 form-group">
               <label for="exampleInputPassword1">House Holds</label>
                
@@ -41,11 +40,9 @@
               <span class="fa fa-asterisk"></span>
               <input type="text" name="phc_id" class="form-control" placeholder="Enter PHC ID" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{ $village->phc_id }}">
           </div>
-        <div class="modal-footer text-center">
-=======
-        <div class="modal-footer justify-content-between">
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
+         <div class="col-lg-12 text-center form-group">
           <button type="submit" class="btn btn-primary form-control">Update</button>
+        </div>
            
         </div>
       </form>

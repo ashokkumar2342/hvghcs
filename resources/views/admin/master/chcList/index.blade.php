@@ -21,7 +21,7 @@
                                     <div class="col-lg-3 form-group">
                                         <label for="exampleInputEmail1">States</label>
                                         <span class="fa fa-asterisk"></span>
-                                        <select name="states" class="form-control"  onchange="callAjax(this,'{{ route('admin.Master.stateWiseDistrict') }}','district_select_box');callAjax(this,'{{ route('admin.Master.chc_list.table') }}'+'?district_id='+$('#district_select_box').val(),'block_table')">
+                                        <select name="states" class="form-control"  onchange="callAjax(this,'{{ route('admin.Master.stateWiseDistrict') }}','district_select_box')">
                                             <option selected disabled>Select States</option>
                                             @foreach ($States as $State)
                                             <option value="{{ $State->id }}">{{ $State->code }}--{{ $State->name_e }}</option>  
@@ -31,7 +31,7 @@
                                     <div class="col-lg-3 form-group">
                                         <label for="exampleInputEmail1">District</label>
                                         <span class="fa fa-asterisk"></span>
-                                        <select name="district" class="form-control" id="district_select_box" data-table="block_datatable" onchange="callAjax(this,'{{ route('admin.Master.BlockMCSTable') }}'+'?district_id='+$('#district_select_box').val(),'block_table');callAjax(this,'{{ route('admin.Master.chc_list.table') }}'+'?district_id='+$('#district_select_box').val(),'block_table')">
+                                        <select name="district" class="form-control" id="district_select_box" data-table="block_datatable" onchange="callAjax(this,'{{ route('admin.Master.chc.list.table') }}'+'?district_id='+$('#district_select_box').val(),'block_table')">
                                             <option selected disabled>Select District</option>
                                         </select>
                                     </div>

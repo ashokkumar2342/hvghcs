@@ -22,14 +22,7 @@
             <label for="exampleInputPassword1">Block Name</label>
             <span class="fa fa-asterisk"></span>
             <input type="text" name="name" class="form-control" placeholder="Enter Name (English)" value="{{ $BlocksMcs->name_e }}" maxlength="50">
-          </div>
-<<<<<<< HEAD
-           
-           
-           
-=======
-          
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
+          </div> 
            
         </div>
         </div> 

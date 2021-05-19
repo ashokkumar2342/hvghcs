@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\BlockMCType;
 use App\Model\BlockMc;
 use App\Model\BlocksMc;
+use App\Model\CHCList;
 use App\Model\District;
 use App\Model\State;
 use App\Model\Village;
@@ -361,6 +362,65 @@ class MasterController extends Controller
         } catch (Exception $e) {
             
         }
+    }
+
+    public function chcList($value='')
+    {
+      try {
+          $Districts= District::orderBy('name_e','ASC')->get();   
+          $States= State::orderBy('name_e','ASC')->get();   
+          $BlocksMcs= BlocksMc::orderBy('name_e','ASC')->get();   
+          $Villages= Village::orderBy('name_e','ASC')->get(); 
+          return view('admin.master.chcList.index',compact('Districts','States','BlocksMcs','Villages'));
+        } catch (Exception $e) {
+            
+        }
+    }
+    public function chcListTable(Request $request)
+    { 
+      try {
+            
+          $CHCLists= CHCList::where('districts_id',$request->district_id)->orderBy('name_e','ASC')->get();
+          return view('admin.master.chcList.list',compact('CHCLists'));
+        } catch (Exception $e) {
+            
+        }
+    }
+    public function chcListStore(Request $request,$id=null)
+   {   
+       $rules=[
+            'states' => 'required', 
+            'district' => 'required', 
+            'code' => 'required|unique:chc_list,code,'.$id, 
+            'name' => 'required', 
+             
+            // 'syllabus' => 'required', 
+      ];
+
+      $validator = Validator::make($request->all(),$rules);
+      if ($validator->fails()) {
+          $errors = $validator->errors()->all();
+          $response=array();
+          $response["status"]=0;
+          $response["msg"]=$errors[0];
+          return response()->json($response);// response as json
+      }
+      else {
+         $BlocksMc= CHCList::firstOrNew(['id'=>$id]);
+         $BlocksMc->states_id=$request->states;
+         $BlocksMc->districts_id=$request->district; 
+         $BlocksMc->code=$request->code;  
+         $BlocksMc->name_e=$request->name; 
+         $BlocksMc->save();
+        
+       $response=['status'=>1,'msg'=>'Submit Successfully'];
+       return response()->json($response);
+      }
+    }
+    public function chcListEdit($id)
+    {
+      $CHCList= CHCList::find($id);
+          return view('admin.master.chcList.edit',compact('CHCList'));
     }
     
 }
