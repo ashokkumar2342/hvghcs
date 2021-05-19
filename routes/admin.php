@@ -152,12 +152,19 @@ Route::group(['middleware' => 'admin'], function() {
 	    Route::post('villageUpdate/{id}', 'MasterController@villageUpdate')->name('admin.Master.village.villageUpdate');
 	    Route::get('village-delete/{id}', 'MasterController@villageDelete')->name('admin.Master.village.delete');
 
-	    //-village--//
+	    //-chc_list--//
 	    Route::get('chc_list', 'MasterController@chcList')->name('admin.Master.chc_list');	   
 	    Route::post('chc_list-store/{id?}', 'MasterController@chcListStore')->name('admin.Master.chc_list.store');	   
 	    Route::get('chc_list-table', 'MasterController@chcListTable')->name('admin.Master.chc.list.table');	   
-	    Route::get('chc_list-edit/{id}', 'MasterController@chcListEdit')->name('admin.Master.chc_list.edit');	   
-	     
+	    Route::get('chc_list-edit/{id}', 'MasterController@chcListEdit')->name('admin.Master.chc_list.edit');
+
+	    //-chc_list--//
+	    Route::get('phc_list', 'MasterController@phcList')->name('admin.Master.phc_list');	   
+	    Route::get('phc_list-dis-phc_list', 'MasterController@phcListDistChcList')->name('admin.Master.dis.chc.list');	   
+	    Route::get('phc_list-table', 'MasterController@phcListTable')->name('admin.Master.phc.list.table');	   
+	    Route::post('phc_list-store/{id?}', 'MasterController@phcListStore')->name('admin.Master.phc.list.store');	   
+	    Route::get('phc_list-edit/{id}', 'MasterController@phcListEdit')->name('admin.Master.phc.list.edit');	   
+	    
 	    
 	    //-village--//
 	    
