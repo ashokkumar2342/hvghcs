@@ -27,9 +27,14 @@
                                     <div class="form-group col-lg-6">
                                         <label for="exampleInputPassword1">States Name </label>
                                         <span class="fa fa-asterisk"></span>
+<<<<<<< HEAD
                                         <input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50">
                                     </div>
                                     
+=======
+                                        <input type="text" name="name_english" class="form-control" placeholder="Enter Name (English)" maxlength="50">
+                                    </div>
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
                                      
                                 </div> 
                                 <div class="card-footer text-center">
@@ -43,9 +48,14 @@
                              <table id="state_table" class="table table-striped table-bordered">
                                  <thead>
                                      <tr>
+<<<<<<< HEAD
                                          <th>States Code</th>
                                          <th class="text-nowrap">States Name</th>
                                          
+=======
+                                         <th>Code</th>
+                                         <th class="text-nowrap">Name (English)</th>
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
                                          <th>Action</th>
                                           
                                      </tr>
@@ -55,7 +65,10 @@
                                      <tr>
                                          <td>{{ $State->code }}</td>
                                          <td>{{ $State->name_e }}</td>
+<<<<<<< HEAD
                                          
+=======
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
                                          <td class="text-nowrap">
                                              <a onclick="callPopupLarge(this,'{{ route('admin.Master.edit',$State->id) }}')" title="" class="btn btn-info btn-xs"><i class="fa fa-edit"></i></a>
                                              <a href="{{ route('admin.Master.delete',Crypt::encrypt($State->id)) }}" onclick="return confirm('Are you sure you want to delete this item?');"  title="" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>

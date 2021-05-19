@@ -41,10 +41,18 @@
                                         <input type="text" name="code" id="code" class="form-control" placeholder="Enter Code" maxlength="5">
                                     </div>
                                     <div class="col-lg-3 form-group">
+<<<<<<< HEAD
                                         <label for="exampleInputPassword1">Block Name</label>
                                         <span class="fa fa-asterisk"></span>
                                         <input type="text" name="name" id="name_english" class="form-control" placeholder="Enter Name" maxlength="50">
                                     </div> 
+=======
+                                        <label for="exampleInputPassword1">Block Name(English)</label>
+                                        <span class="fa fa-asterisk"></span>
+                                        <input type="text" name="name_english" id="name_english" class="form-control" placeholder="Enter Name (English)" maxlength="50">
+                                    </div>
+                                    
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
                                 </div> 
                                 <div class="card-footer text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -58,8 +66,13 @@
                                      <tr>
                                          <th>States</th>
                                          <th>District</th>
+<<<<<<< HEAD
                                          <th>Block Code</th>
                                          <th>Block Name</th> 
+=======
+                                         <th>Code</th>
+                                         <th>Name (English)</th>
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
                                          <th>Action</th>
                                           
                                      </tr>

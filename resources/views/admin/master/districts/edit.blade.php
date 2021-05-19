@@ -30,7 +30,11 @@
                   <span class="fa fa-asterisk"></span>
                   <input type="text" name="name" class="form-control" placeholder="Enter Name (English)" value="{{ $Districts->name_e }}">
               </div>
+<<<<<<< HEAD
                
+=======
+              
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
           </div> 
           <div class="modal-footer justify-content-between">
           <button type="submit" class="btn btn-success">Update</button>

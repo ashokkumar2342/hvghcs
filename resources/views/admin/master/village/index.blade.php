@@ -91,8 +91,6 @@
                                         <th class="text-nowrap">Block MCS</th>
                                         <th class="text-nowrap">Code</th>
                                         <th class="text-nowrap">Name (Eng.)</th>
-                                        <th class="text-nowrap">Name (Local Lang.)</th>
-                                        <th class="text-nowrap">(Total Ward)</th>
                                         <th class="text-nowrap">Action</th>
 
                                     </tr>

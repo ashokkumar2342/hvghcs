@@ -18,9 +18,14 @@
           <div class="form-group">
             <label for="exampleInputPassword1">States Name </label>
             <span class="fa fa-asterisk"></span>
+<<<<<<< HEAD
             <input type="text" name="name" class="form-control" placeholder="Enter Name (English)" value="{{ $States->name_e }}" maxlength="50">
           </div>
            
+=======
+            <input type="text" name="name_english" class="form-control" placeholder="Enter Name (English)" value="{{ $States->name_e }}" maxlength="50">
+          </div> 
+>>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
         <div class="modal-footer justify-content-between">
           <button type="submit" class="btn btn-success">Update</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
