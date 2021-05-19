@@ -6,6 +6,7 @@ use App\Helper\MyFuncs;
 use App\Http\Controllers\Controller;
 use App\Model\BlockMCType;
 use App\Model\BlockMc;
+use App\Model\BlocksMc;
 use App\Model\District;
 use App\Model\State;
 use App\Model\Village;
@@ -33,13 +34,8 @@ class MasterController extends Controller
    {  
        $rules=[
             'code' => 'required|unique:states,code,'.$id, 
-<<<<<<< HEAD
+
             'name' => 'required', 
-             
-=======
-            'name_english' => 'required', 
-            // 'syllabus' => 'required', 
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
       ];
 
       $validator = Validator::make($request->all(),$rules);
@@ -53,12 +49,7 @@ class MasterController extends Controller
       else {
        $States= State::firstOrNew(['id'=>$id]);
        $States->code=$request->code;
-<<<<<<< HEAD
        $States->name_e=$request->name;
-       
-=======
-       $States->name_e=$request->name_english;
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
        $States->save();
        $response=['status'=>1,'msg'=>'Submit Successfully'];
        return response()->json($response);
@@ -99,13 +90,8 @@ class MasterController extends Controller
        $rules=[
             'states' => 'required', 
             'code' => 'required|unique:districts,code,'.$id, 
-<<<<<<< HEAD
-            'name' => 'required', 
-            
-=======
-            'name_english' => 'required', 
-            // 'syllabus' => 'required', 
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
+
+            'name' => 'required',
       ];
 
       $validator = Validator::make($request->all(),$rules);
@@ -117,18 +103,10 @@ class MasterController extends Controller
           return response()->json($response);// response as json
       }
       else {
-<<<<<<< HEAD
-         
         $district=District::firstOrNew(['id'=>$id]);
         $district->state_id=$request->states;
         $district->code=$request->code;
-        $district->name_e=$request->name; 
-=======
-        $district=District::firstOrNew(['id'=>$id]);
-        $district->state_id=$request->states;
-        $district->code=$request->code;
-        $district->name_e=$request->name_english;
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
+        $district->name_e=$request->name;
         $district->save(); 
         
        $response=['status'=>1,'msg'=>'Submit Successfully'];
@@ -167,10 +145,6 @@ class MasterController extends Controller
     public function BlockMCS(Request $request)
    {
       try {
-<<<<<<< HEAD
-           
-=======
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
           $Districts= District::orderBy('name_e','ASC')->get();   
           $States= State::orderBy('name_e','ASC')->get();   
           $BlocksMcs= BlocksMc::orderBy('name_e','ASC')->get();   
@@ -179,29 +153,13 @@ class MasterController extends Controller
             
         }
    }
-<<<<<<< HEAD
-    
-=======
-   public function BlockbtnClickByForm($value='')
-   {
-     return view('admin.master.block.block_form_div');
-   }
-
-
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
    public function BlockMCSStore(Request $request,$id=null)
    {   
        $rules=[
             'states' => 'required', 
             'district' => 'required', 
-            'code' => 'required|unique:blocks_mcs,code,'.$id, 
-<<<<<<< HEAD
-            'name' => 'required', 
-            
-=======
-            'name_english' => 'required', 
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
-            // 'syllabus' => 'required', 
+            'code' => 'required|unique:blocks_mcs,code,'.$id,
+            'name' => 'required',
       ];
 
       $validator = Validator::make($request->all(),$rules);
@@ -215,19 +173,11 @@ class MasterController extends Controller
       else {
        $BlocksMc= BlocksMc::firstOrNew(['id'=>$id]);
        $BlocksMc->states_id=$request->states;
-<<<<<<< HEAD
        $BlocksMc->districts_id=$request->district; 
        $BlocksMc->code=$request->code;
        $BlocksMc->name_e=$request->name;
         
        $BlocksMc->save();
-        
-=======
-       $BlocksMc->districts_id=$request->district;
-       $BlocksMc->code=$request->code;
-       $BlocksMc->name_e=$request->name_english;
-       $BlocksMc->save();
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
        $response=['status'=>1,'msg'=>'Submit Successfully'];
        return response()->json($response);
       }
@@ -242,10 +192,6 @@ class MasterController extends Controller
     public function BlockMCSEdit($id)
     {
        try {
-<<<<<<< HEAD
-           
-=======
->>>>>>> 9859879ffb595b76d6b8bc59bb9470889f3fa584
           $Districts= District::orderBy('name_e','ASC')->get();   
           $States= State::orderBy('name_e','ASC')->get();   
           $BlocksMcs= BlocksMc::find($id);  

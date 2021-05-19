@@ -151,6 +151,13 @@ Route::group(['middleware' => 'admin'], function() {
 	    Route::get('village-edit/{id}', 'MasterController@villageEdit')->name('admin.Master.village.edit');
 	    Route::post('villageUpdate/{id}', 'MasterController@villageUpdate')->name('admin.Master.village.villageUpdate');
 	    Route::get('village-delete/{id}', 'MasterController@villageDelete')->name('admin.Master.village.delete');
+
+	    //-village--//
+	    Route::get('chc_list', 'MasterController@chcList')->name('admin.Master.chc_list');	   
+	    Route::post('chc_list-store/{id?}', 'MasterController@chcListStore')->name('admin.Master.chc_list.store');	   
+	    Route::get('chc_list-table', 'MasterController@chcListTable')->name('admin.Master.chc_list.table');	   
+	    Route::get('chc_list-edit/{id}', 'MasterController@chcListEdit')->name('admin.Master.chc_list.edit');	   
+	     
 	    
 	    //-village--//
 	    
