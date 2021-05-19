@@ -22,7 +22,7 @@
                 <option value="" disabled selected>Select User</option>
                 @foreach ($users as $user)
                
-                <option value="{{ $user->id }}">{{ $user->email }} &nbsp;&nbsp;&nbsp;&nbsp;( {{ $user->first_name }} )</option>
+                <option value="{{ $user->id }}">{{ $user->mobile }} &nbsp;&nbsp;&nbsp;&nbsp;( {{ $user->first_name }} )</option>
               
                 @endforeach  
               </select> 
