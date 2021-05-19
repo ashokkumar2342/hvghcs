@@ -26,15 +26,11 @@
                   <input type="text" name="code" class="form-control" placeholder="Enter Code" value="{{ $Districts->code }}">
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">Districts Name (English)</label>
+                  <label for="exampleInputPassword1">Districts Name</label>
                   <span class="fa fa-asterisk"></span>
-                  <input type="text" name="name_english" class="form-control" placeholder="Enter Name (English)" value="{{ $Districts->name_e }}">
+                  <input type="text" name="name" class="form-control" placeholder="Enter Name (English)" value="{{ $Districts->name_e }}">
               </div>
-              <div class="form-group">
-                  <label for="exampleInputPassword1">Districts Name (Local Language)</label>
-                  <span class="fa fa-asterisk"></span>
-                  <input type="text" name="name_local_language" class="form-control" placeholder="Enter Name (Local Language)" value="{{ $Districts->name_l }}">
-              </div> 
+               
           </div> 
           <div class="modal-footer justify-content-between">
           <button type="submit" class="btn btn-success">Update</button>

@@ -43,13 +43,41 @@
                                              
                                         </select>
                                     </div> 
-                                    <button type="button" hidden id="btn_click_by_form" onclick="callAjax(this,'{{ route('admin.Master.BtnClickByvillageForm') }}','village_form_div')"></button>
-                                    <div class="col-lg-12" id="village_form_div">
-                                        
+                                    <div class="col-lg-4 form-group">
+                                        <label for="exampleInputEmail1">Village Code</label>
+                                        <span class="fa fa-asterisk"></span>
+                                        <input type="text" name="code" class="form-control" placeholder="Enter Code" maxlength="5">
                                     </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label for="exampleInputPassword1">Village Name</label>
+                                        <span class="fa fa-asterisk"></span>
+                                        <input type="text" name="village_name" class="form-control" placeholder="Enter Name" maxlength="50">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label for="exampleInputPassword1">House Holds</label>
+                                         
+                                        <input type="text" name="house_holds" class="form-control" placeholder="Enter House Holds" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label for="exampleInputPassword1">Population</label>
+                                         
+                                        <input type="text" name="population" class="form-control" placeholder="Enter Population" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label for="exampleInputPassword1">CHC ID</label>
+                                        <span class="fa fa-asterisk"></span>
+                                        <input type="text" name="chc_id" class="form-control" placeholder="Enter CHC ID" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label for="exampleInputPassword1">PHC ID</label>
+                                        <span class="fa fa-asterisk"></span>
+                                        <input type="text" name="phc_id" class="form-control" placeholder="Enter PHC ID" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    </div>
+                                     
+                                     
                                 </div> 
                                 <div class="card-footer text-center">
-                                    <button type="submit" class="btn btn-primary form-control">Submit</button>
+                                    <button type="submit" class="btn btn-primary ">Submit</button>
                                 </div>
                             </form> 
                     </div>
