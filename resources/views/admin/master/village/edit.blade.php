@@ -20,11 +20,6 @@
               <span class="fa fa-asterisk"></span>
               <input type="text" name="name_english" class="form-control" placeholder="Enter Name (English)" maxlength="50" value="{{ $village->name_e }}">
           </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Village Name (Local Language)</label>
-              <span class="fa fa-asterisk"></span>
-              <input type="text" name="name_local_language" class="form-control" placeholder="Enter Name (Local Language)" maxlength="50" value="{{ $village->name_l }}">
-          </div>  
         <div class="modal-footer justify-content-between">
           <button type="submit" class="btn btn-primary form-control">Update</button>
            

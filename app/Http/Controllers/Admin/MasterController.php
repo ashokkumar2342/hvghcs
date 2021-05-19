@@ -51,7 +51,6 @@ class MasterController extends Controller
        $rules=[
             'code' => 'required|unique:states,code,'.$id, 
             'name_english' => 'required', 
-            'name_local_language' => 'required', 
             // 'syllabus' => 'required', 
       ];
 
@@ -67,7 +66,6 @@ class MasterController extends Controller
        $States= State::firstOrNew(['id'=>$id]);
        $States->code=$request->code;
        $States->name_e=$request->name_english;
-       $States->name_l=$request->name_local_language; 
        $States->save();
        $response=['status'=>1,'msg'=>'Submit Successfully'];
        return response()->json($response);
@@ -109,7 +107,6 @@ class MasterController extends Controller
             'states' => 'required', 
             'code' => 'required|unique:districts,code,'.$id, 
             'name_english' => 'required', 
-            'name_local_language' => 'required', 
             // 'syllabus' => 'required', 
       ];
 
@@ -122,18 +119,12 @@ class MasterController extends Controller
           return response()->json($response);// response as json
       }
       else {
-        if (!empty($id)) {
         $district=District::firstOrNew(['id'=>$id]);
         $district->state_id=$request->states;
         $district->code=$request->code;
         $district->name_e=$request->name_english;
-        $district->name_l=$request->name_local_language;
         $district->save(); 
-        }
-        elseif (empty($id)) {
-        $user=Auth::guard('admin')->user(); 
-        $zpWard = DB::select(DB::raw("call up_create_district_excel ('$user->id','$request->states','$request->code','$request->name_english','$request->name_local_language','$request->zp_ward')")); 
-        }
+        
        $response=['status'=>1,'msg'=>'Submit Successfully'];
        return response()->json($response);
       }
@@ -381,11 +372,10 @@ class MasterController extends Controller
     public function BlockMCS(Request $request)
    {
       try {
-          $BlockMCTypes=BlockMCType::orderBy('id','ASC')->get();
           $Districts= District::orderBy('name_e','ASC')->get();   
           $States= State::orderBy('name_e','ASC')->get();   
           $BlocksMcs= BlocksMc::orderBy('name_e','ASC')->get();   
-          return view('admin.master.block.index',compact('Districts','States','BlocksMcs','BlockMCTypes'));
+          return view('admin.master.block.index',compact('Districts','States','BlocksMcs'));
         } catch (Exception $e) {
             
         }
@@ -394,6 +384,8 @@ class MasterController extends Controller
    {
      return view('admin.master.block.block_form_div');
    }
+
+
    public function BlockMCSStore(Request $request,$id=null)
    {   
        $rules=[
@@ -401,8 +393,6 @@ class MasterController extends Controller
             'district' => 'required', 
             'code' => 'required|unique:blocks_mcs,code,'.$id, 
             'name_english' => 'required', 
-            'name_local_language' => 'required', 
-            'block_mc_type_id' => 'required', 
             // 'syllabus' => 'required', 
       ];
 
@@ -418,33 +408,27 @@ class MasterController extends Controller
        $BlocksMc= BlocksMc::firstOrNew(['id'=>$id]);
        $BlocksMc->states_id=$request->states;
        $BlocksMc->districts_id=$request->district;
-       $BlocksMc->block_mc_type_id=$request->block_mc_type_id;
        $BlocksMc->code=$request->code;
        $BlocksMc->name_e=$request->name_english;
-       $BlocksMc->name_l=$request->name_local_language; 
-       $BlocksMc->stamp_l1=$request->stamp_l1; 
-       $BlocksMc->stamp_l2=$request->stamp_l2; 
        $BlocksMc->save();
-       if (empty($id)) { 
-       $psWard = DB::select(DB::raw("call up_create_ps_ward ('$BlocksMc->id','$request->ps_ward','0')")); 
-       }
        $response=['status'=>1,'msg'=>'Submit Successfully'];
        return response()->json($response);
       }
     }
+
     public function BlockMCSTable(Request $request)
     {  
        $BlocksMcs= BlocksMc::where('districts_id',$request->district_id)->orderBy('name_e','ASC')->get(); 
        return view('admin.master.block.block_table',compact('Districts','States','BlocksMcs'));
     }
+
     public function BlockMCSEdit($id)
     {
        try {
-          $BlockMCTypes=BlockMCType::orderBy('id','ASC')->get();
           $Districts= District::orderBy('name_e','ASC')->get();   
           $States= State::orderBy('name_e','ASC')->get();   
           $BlocksMcs= BlocksMc::find($id);  
-          return view('admin.master.block.edit',compact('Districts','States','BlocksMcs','BlockMCTypes'));
+          return view('admin.master.block.edit',compact('Districts','States','BlocksMcs'));
         } catch (Exception $e) {
             
         }

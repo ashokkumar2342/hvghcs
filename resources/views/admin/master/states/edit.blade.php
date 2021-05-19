@@ -19,11 +19,6 @@
             <label for="exampleInputPassword1">States Name (English)</label>
             <span class="fa fa-asterisk"></span>
             <input type="text" name="name_english" class="form-control" placeholder="Enter Name (English)" value="{{ $States->name_e }}" maxlength="50">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">States Name (Local Language)</label>
-            <span class="fa fa-asterisk"></span>
-            <input type="text" name="name_local_language" class="form-control" placeholder="Enter Name (Local Language)" value="{{ $States->name_l }}" maxlength="50">
           </div> 
         <div class="modal-footer justify-content-between">
           <button type="submit" class="btn btn-success">Update</button>

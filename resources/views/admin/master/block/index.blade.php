@@ -45,36 +45,6 @@
                                         <span class="fa fa-asterisk"></span>
                                         <input type="text" name="name_english" id="name_english" class="form-control" placeholder="Enter Name (English)" maxlength="50">
                                     </div>
-                                    <div class="col-lg-3 form-group">
-                                        <label for="exampleInputPassword1">Block Name(Local Lang)</label>
-                                        <span class="fa fa-asterisk"></span>
-                                        <input type="text" name="name_local_language" id="name_local_language" class="form-control" placeholder="Enter Name (Local Language)" maxlength="50">
-                                    </div>
-                                    <div class="col-lg-3 form-group">
-                                        <label for="exampleInputPassword1">Block MSC Type</label>
-                                        <span class="fa fa-asterisk"></span>
-                                        <select name="block_mc_type_id" id="block_mc_type" class="form-control">
-                                            <option selected disabled>Select Block MSC Type</option>
-                                            @foreach ($BlockMCTypes as $BlockMCType)
-                                            <option value="{{ $BlockMCType->id }}">{{ $BlockMCType->block_mc_type_e }}</option>  
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <label for="exampleInputPassword1">stamp_l1</label>
-                                         
-                                        <input type="text" name="stamp_l1" id="stamp_l1" class="form-control" maxlength="100">
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <label for="exampleInputPassword1">stamp_l2</label>
-                                         
-                                        <input type="text" name="stamp_l2" id="stamp_l2" class="form-control" maxlength="100">
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <label for="exampleInputPassword1">How Many P.S.Ward To Create</label>
-                                         
-                                        <input type="text" name="ps_ward" id="ps_ward" class="form-control" maxlength="50">
-                                    </div>
                                     
                                 </div> 
                                 <div class="card-footer text-center">
@@ -91,9 +61,6 @@
                                          <th>District</th>
                                          <th>Code</th>
                                          <th>Name (English)</th>
-                                         <th>Name (Local Language)</th>
-                                         <th>Block MSC Type</th>
-                                         <th>Total P.S.Ward</th>
                                          <th>Action</th>
                                           
                                      </tr>

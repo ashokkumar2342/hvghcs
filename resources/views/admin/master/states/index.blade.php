@@ -29,11 +29,6 @@
                                         <span class="fa fa-asterisk"></span>
                                         <input type="text" name="name_english" class="form-control" placeholder="Enter Name (English)" maxlength="50">
                                     </div>
-                                    <div class="form-group col-lg-4">
-                                        <label for="exampleInputPassword1">States Name (Local Language)</label>
-                                        <span class="fa fa-asterisk"></span>
-                                        <input type="text" name="name_local_language" class="form-control" placeholder="Enter Name (Local Language)" maxlength="50">
-                                    </div>
                                      
                                 </div> 
                                 <div class="card-footer text-center">
@@ -49,7 +44,6 @@
                                      <tr>
                                          <th>Code</th>
                                          <th class="text-nowrap">Name (English)</th>
-                                         <th class="text-nowrap">Name (Local Language)</th>
                                          <th>Action</th>
                                           
                                      </tr>
@@ -59,7 +53,6 @@
                                      <tr>
                                          <td>{{ $State->code }}</td>
                                          <td>{{ $State->name_e }}</td>
-                                         <td>{{ $State->name_l }}</td>
                                          <td class="text-nowrap">
                                              <a onclick="callPopupLarge(this,'{{ route('admin.Master.edit',$State->id) }}')" title="" class="btn btn-info btn-xs"><i class="fa fa-edit"></i></a>
                                              <a href="{{ route('admin.Master.delete',Crypt::encrypt($State->id)) }}" onclick="return confirm('Are you sure you want to delete this item?');"  title="" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
