@@ -21,4 +21,12 @@ class Village extends Model
       {
              return $this->hasOne('App\Model\BlocksMc','id','blocks_id');
       }
+      public function CHCList()
+      {
+         return $this->hasOne('App\Model\CHCList','id','chc_id');
+      }
+      public function PHCList()
+      {
+         return $this->hasOne('App\Model\PHCList','id','phc_id');
+      }
 }

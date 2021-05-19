@@ -231,10 +231,10 @@ class MasterController extends Controller
             'states' => 'required', 
             'district' => 'required', 
             'block_mcs' => 'required', 
-            'code' => 'required|unique:villages,code,'.$id, 
-            'village_name' => 'required', 
             'chc_id' => 'required', 
             'phc_id' => 'required', 
+            'code' => 'required|unique:villages,code,'.$id, 
+            'village_name' => 'required', 
              
             // 'syllabus' => 'required', 
       ];
@@ -362,6 +362,17 @@ class MasterController extends Controller
         } catch (Exception $e) {
             
         }
+    }
+    public function DistrictWiseChcid(Request $request)
+    { 
+        $CHCLists= CHCList::where('districts_id',$request->district_id)->orderBy('name_e','ASC')->get();
+        return view('admin.master.chcList.value',compact('CHCLists'));
+    }
+
+    public function ChcidwisePhcid(Request $request)
+    {
+        $PHCLists= PHCList::where('chc_id',$request->id)->orderBy('name_e','ASC')->get();
+        return view('admin.master.phcList.value',compact('PHCLists'));
     }
 
     public function chcList($value='')

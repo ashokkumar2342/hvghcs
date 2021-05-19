@@ -145,8 +145,7 @@ Route::group(['middleware' => 'admin'], function() {
 	    Route::post('BlockMCSpsWardStore', 'MasterController@BlockMCSpsWardStore')->name('admin.Master.BlockMCSpsWardStore');
 	    //-village--//
 	    Route::get('village', 'MasterController@village')->name('admin.Master.village');	   
-	    Route::post('village-store{id?}', 'MasterController@villageStore')->name('admin.Master.village.store');	   
-	    
+	    Route::post('village-store{id?}', 'MasterController@villageStore')->name('admin.Master.village.store'); 
 	    Route::get('villageTable', 'MasterController@villageTable')->name('admin.Master.villageTable');
 	    Route::get('village-edit/{id}', 'MasterController@villageEdit')->name('admin.Master.village.edit');
 	    Route::post('villageUpdate/{id}', 'MasterController@villageUpdate')->name('admin.Master.village.villageUpdate');
@@ -175,13 +174,18 @@ Route::group(['middleware' => 'admin'], function() {
 	    
 
 	    Route::get('DistrictWiseBlock/{print_condition?}', 'MasterController@DistrictWiseBlock')->name('admin.Master.DistrictWiseBlock');
+
+	    Route::get('DistrictWiseChcid', 'MasterController@DistrictWiseChcid')->name('admin.Master.DistrictWiseChcid');
+
+	    Route::get('ChcidwisePhcid', 'MasterController@ChcidwisePhcid')->name('admin.Master.ChcidwisePhcid');
 	     
 
 	    Route::get('BlockWiseVillage', 'MasterController@BlockWiseVillage')->name('admin.Master.BlockWiseVillage');
 	});
 
  	Route::group(['prefix' => 'form3'], function() {
-               Route::get('/', 'Form3Controller@index')->name('admin.form3.index');
+        Route::get('/', 'Form3Controller@index')->name('admin.form3.index');
+        Route::post('store', 'Form3Controller@Store')->name('admin.form3.store');
                 
 
  	});

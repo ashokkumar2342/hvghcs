@@ -5,12 +5,12 @@
                                          <th class="text-nowrap">States</th>
                                          <th class="text-nowrap">District</th>
                                          <th class="text-nowrap">Block MCS</th>
+                                         <th class="text-nowrap">CHC ID</th>
+                                         <th class="text-nowrap">PHC ID</th>
                                          <th class="text-nowrap">Village Code</th>
                                          <th class="text-nowrap">Village Name</th>
                                          <th class="text-nowrap">House Holds</th>
                                          <th class="text-nowrap">Population</th>
-                                         <th class="text-nowrap">CHC ID</th>
-                                         <th class="text-nowrap">PHC ID</th>
                                          
                                          <th class="text-nowrap">Action</th>
                                           
@@ -23,12 +23,12 @@
                                          <td>{{ $Village->states->name_e or '' }}</td>
                                          <td>{{ $Village->district->name_e or '' }}</td>
                                          <td>{{ $Village->blockMCS->name_e or '' }}</td>
+                                         <td>{{ $Village->CHCList->name_e or '' }}</td>
+                                         <td>{{ $Village->PHCList->name_e or '' }}</td>
                                          <td>{{ $Village->code }}</td>
                                          <td>{{ $Village->name_e }}</td>
                                          <td>{{ $Village->house_holds }}</td>
                                          <td>{{ $Village->population }}</td>
-                                         <td>{{ $Village->chc_id }}</td>
-                                         <td>{{ $Village->phc_id }}</td>
                                           
                                          <td class="text-nowrap">
                                              
