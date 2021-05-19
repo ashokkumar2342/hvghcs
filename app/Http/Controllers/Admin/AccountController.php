@@ -58,7 +58,7 @@ class AccountController extends Controller
         return $pdf->stream('user_list.pdf');
      } 
 
-    Public function store(Request $request){ return $request;
+    Public function store(Request $request){
         $rules=[
         'name' => 'required|string|min:3|max:50',             
          
