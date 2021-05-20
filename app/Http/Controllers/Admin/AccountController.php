@@ -56,7 +56,12 @@ class AccountController extends Controller
         ])
         ->loadView('admin.account.user_list_pdf_generate',compact('accounts'));
         return $pdf->stream('user_list.pdf');
-     } 
+     }
+
+    public function sendSms($user_id)
+    { 
+       return redirect()->back()->with(['message'=>'accoount deleted','class'=>'success']);
+    } 
 
     Public function store(Request $request){
         $rules=[
