@@ -116,6 +116,7 @@ class AccountController extends Controller
         
         return view('admin.account.pending_village'); 
     }
+
     Public function sendSendingVillage(Request $request){
         $rules=[
         'date' => 'required|date', 
@@ -129,15 +130,24 @@ class AccountController extends Controller
             $response["msg"]=$errors[0];
             return response()->json($response);// response as json
         }
-        $mobile =9355805581;
-        $name ='Sample-Name';
-        $village ='Sample-village';
-        event(new SmsEvent($mobile,'Dear '.$name.', Report Pending for village '.$village.'. Plz enter report. District Administration Jhajjar'));
+        // dd(date_create($request->date)->format("d-m-Y"));
+        // dd(date_format($request->date,"d-m-Y"));
+        // $pending_vill =DB::select(DB::raw("select `ad`.`first_name`, `ad`.`mobile`, `v`.`name_e` from `villages` `v` Inner join `user_village_assigns` `uva` on `uva`.`village_id` = `v`.`id` Inner join `admins` `ad`  on `ad`.`id` = `uva`.`user_id` where `v`.`id` not in (select `village_id` from `form3` where `fordate` = '$request->date');"));
+        
+        foreach ($pending_vill as $key => $pending_value) {
+            $mobile = $pending_value->mobile;
+            $name = $pending_value->first_name;
+            $village = $pending_value->name_e.' for date '.date_create($request->date)->format("d-m-Y");
+            event(new SmsEvent($mobile,'Dear '.$name.', Report Pending for village '.$village.'. Plz enter report. District Administration Jhajjar'));
+        }        
+        
         
               
         $response=['status'=>1,'msg'=>'Sent SMS Successfully'];
-            return response()->json($response); 
+        return response()->json($response); 
     }
+
+
     Public function edit(Request $request, Admin $account){
         $admin=Auth::guard('admin')->user();       
         $roles =DB::select(DB::raw("select `id`, `name` from `roles` where `id`  >= (Select `role_id` from `admins` where `id` =$admin->id) Order By `name`;"));
