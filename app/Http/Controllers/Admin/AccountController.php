@@ -86,7 +86,7 @@ class AccountController extends Controller
         $accounts->status=1;          
         $accounts->save();
         $userNewId=$accounts->id;
-        DB::select(DB::raw("call up_AssignPermission_NewUser ('$userNewId')"));
+        // DB::select(DB::raw("call up_AssignPermission_NewUser ('$userNewId')"));
         event(new SmsEvent($request->mobile_no,'Dear '.$request->name.', your userid : '.$request->mobile.', password : '.$request->password.' for HVGHCS. plz enter daily report on hvghcs.covidcarejhajjar.in District Administration Jhajjar'));      
         $response=['status'=>1,'msg'=>'Account Created Successfully'];
             return response()->json($response);   
