@@ -58,9 +58,16 @@ class AccountController extends Controller
         return $pdf->stream('user_list.pdf');
      }
 
+    
     public function sendSms($user_id)
     { 
-       return redirect()->back()->with(['message'=>'accoount deleted','class'=>'success']);
+        $users_detail = DB::select(DB::raw("select `first_name`, `mobile`, `password_plain` from `admins` where `id` = $user_id;"));
+        event(new SmsEvent($request->mobile,'Dear '.$users_detail->first_name.', your userid : '.$users_detail->mobile.', password : '.$users_detail->password_plain.' for HVGHCS. plz enter daily report on hvghcs.covidcarejhajjar.in District Administration Jhajjar'));
+    
+        // return redirect()->back()->with(['message'=>'Message Send Successfully','class'=>'success']);
+        
+        $response=['status'=>1,'msg'=>'SMS Send Successfully'];
+            return response()->json($response);
     } 
 
     Public function store(Request $request){
