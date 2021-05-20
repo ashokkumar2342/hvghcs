@@ -62,12 +62,12 @@ class AccountController extends Controller
     public function sendSms($user_id)
     { 
         $users_detail = DB::select(DB::raw("select `first_name`, `mobile`, `password_plain` from `admins` where `id` = $user_id;"));
-        event(new SmsEvent($request->mobile,'Dear '.$users_detail->first_name.', your userid : '.$users_detail->mobile.', password : '.$users_detail->password_plain.' for HVGHCS. plz enter daily report on hvghcs.covidcarejhajjar.in District Administration Jhajjar'));
+        event(new SmsEvent($users_detail[0]->mobile,'Dear '.$users_detail[0]->first_name.', your userid : '.$users_detail[0]->mobile.', password : '.$users_detail[0]->password_plain.' for HVGHCS. plz enter daily report on hvghcs.covidcarejhajjar.in District Administration Jhajjar'));
     
-        // return redirect()->back()->with(['message'=>'Message Send Successfully','class'=>'success']);
+        return redirect()->back()->with(['message'=>'Message Send Successfully','class'=>'success']);
         
-        $response=['status'=>1,'msg'=>'SMS Send Successfully'];
-            return response()->json($response);
+        // $response=['status'=>1,'msg'=>'SMS Send Successfully'];
+        //     return response()->json($response);
     } 
 
     Public function store(Request $request){
