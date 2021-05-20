@@ -132,7 +132,7 @@ class AccountController extends Controller
         }
         // dd(date_create($request->date)->format("d-m-Y"));
         // dd(date_format($request->date,"d-m-Y"));
-        // $pending_vill =DB::select(DB::raw("select `ad`.`first_name`, `ad`.`mobile`, `v`.`name_e` from `villages` `v` Inner join `user_village_assigns` `uva` on `uva`.`village_id` = `v`.`id` Inner join `admins` `ad`  on `ad`.`id` = `uva`.`user_id` where `v`.`id` not in (select `village_id` from `form3` where `fordate` = '$request->date');"));
+        $pending_vill =DB::select(DB::raw("select `ad`.`first_name`, `ad`.`mobile`, `v`.`name_e` from `villages` `v` Inner join `user_village_assigns` `uva` on `uva`.`village_id` = `v`.`id` Inner join `admins` `ad`  on `ad`.`id` = `uva`.`user_id` where `v`.`id` not in (select `village_id` from `form3` where `fordate` = '$request->date');"));
         
         foreach ($pending_vill as $key => $pending_value) {
             $mobile = $pending_value->mobile;
