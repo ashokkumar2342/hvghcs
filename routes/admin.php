@@ -43,6 +43,8 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::get('photo-refrash', 'DashboardController@profilePhotoRefrash')->name('admin.profile.photo.refrash');
 	//---------------account-----------------------------------------	
 	Route::prefix('account')->group(function () {
+	    Route::get('pending-village', 'AccountController@pendingVillage')->name('admin.pending.village');
+	    Route::post('send-pending-village', 'AccountController@sendSendingVillage')->name('admin.send.pending.village');
 	    Route::get('form', 'AccountController@form')->name('admin.account.form');
 	    Route::post('store', 'AccountController@store')->name('admin.account.post');
 		Route::get('list', 'AccountController@index')->name('admin.account.list');

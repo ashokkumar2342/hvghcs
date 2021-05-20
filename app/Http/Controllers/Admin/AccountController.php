@@ -101,6 +101,32 @@ class AccountController extends Controller
 
     
 
+    Public function pendingVillage(){
+        
+        return view('admin.account.pending_village'); 
+    }
+    Public function sendSendingVillage(Request $request){
+        $rules=[
+        'date' => 'required|date', 
+        ];
+
+        $validator = Validator::make($request->all(),$rules);
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            $response=array();
+            $response["status"]=0;
+            $response["msg"]=$errors[0];
+            return response()->json($response);// response as json
+        }
+        $mobile =7903436369;
+        $name ='Sample-Name';
+        $village ='Sample-village';
+        event(new SmsEvent($mobile,'Dear '.$name.', Report Pending for village '.$village.'. Plz enter report. District Administration Jhajjar'));
+        
+              
+        $response=['status'=>1,'msg'=>'Sent SMS Successfully'];
+            return response()->json($response); 
+    }
     Public function edit(Request $request, Admin $account){
         $admin=Auth::guard('admin')->user();       
         $roles =DB::select(DB::raw("select `id`, `name` from `roles` where `id`  >= (Select `role_id` from `admins` where `id` =$admin->id) Order By `name`;"));
