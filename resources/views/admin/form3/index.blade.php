@@ -15,65 +15,85 @@
         <div class="card card-info"> 
             <div class="card-body">
                 <form action="{{ route('admin.form3.store') }}" method="post" class="add_form">
-                {{ csrf_field() }} 
-                <div class="row"> 
-                    <div class="col-lg-3 form-group">
-                    <label for="exampleInputEmail1">States</label>
-                    <span class="fa fa-asterisk"></span>
-                    <select name="states" id="state_select_box" class="form-control" onchange="callAjax(this,'{{ route('admin.Master.stateWiseDistrict') }}','district_select_box')">
-                        <option selected disabled>Select States</option>
-                        @foreach ($States as $State)
-                        <option value="{{ $State->id }}">{{ $State->code }}--{{ $State->name_e }}</option>  
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-lg-3 form-group">
-                    <label for="exampleInputEmail1">District</label>
-                    <span class="fa fa-asterisk"></span>
-                    <select name="district" class="form-control" id="district_select_box" onchange="callAjax(this,'{{ route('admin.Master.DistrictWiseBlock') }}','block_select_box')">
-                        <option selected disabled>Select District</option>
-                    </select>
-                </div>
-                <div class="col-lg-3 form-group">
-                    <label for="exampleInputEmail1">Block MCS</label>
-                    <span class="fa fa-asterisk"></span>
-                    <select name="block" class="form-control select2" id="block_select_box" onchange="callAjax(this,'{{ route('admin.Master.BlockWiseVillage') }}'+'?id='+this.value+'&district_id='+$('#district_select_box').val(),'village_select_box')">
-                        <option selected disabled>Select Block MCS</option> 
-                    </select>
+                {{ csrf_field() }}  
+                    <div class="card card-info row">
+                        <div class="card-header">
+                        <h3 class="card-title"></h3> 
+                        </div>
+                        <div class="row"> 
+                            <div class="col-lg-3 form-group">
+                                <label for="exampleInputEmail1">States</label>
+                                <span class="fa fa-asterisk"></span>
+                                <select name="states" id="state_select_box" class="form-control" onchange="callAjax(this,'{{ route('admin.Master.stateWiseDistrict') }}','district_select_box')">
+                                <option selected disabled>Select States</option>
+                                @foreach ($States as $State)
+                                <option value="{{ $State->id }}">{{ $State->code }}--{{ $State->name_e }}</option>  
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label for="exampleInputEmail1">District</label>
+                                <span class="fa fa-asterisk"></span>
+                                <select name="district" class="form-control" id="district_select_box" onchange="callAjax(this,'{{ route('admin.Master.DistrictWiseBlock') }}','block_select_box')">
+                                <option selected disabled>Select District</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label for="exampleInputEmail1">Block MCS</label>
+                                <span class="fa fa-asterisk"></span>
+                                <select name="block" class="form-control select2" id="block_select_box" onchange="callAjax(this,'{{ route('admin.Master.BlockWiseVillage') }}'+'?id='+this.value+'&district_id='+$('#district_select_box').val(),'village_select_box')">
+                                <option selected disabled>Select Block MCS</option> 
+                                </select>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label for="exampleInputEmail1">Village</label>
+                                <span class="fa fa-asterisk"></span>
+                                <select name="village" class="form-control select2" id="village_select_box" multiselect-form="true">
+                                <option selected disabled>Select Village</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-3 form-group">
-                        <label for="exampleInputEmail1">Village</label>
-                        <span class="fa fa-asterisk"></span>
-                        <select name="village" class="form-control select2" id="village_select_box" multiselect-form="true">
-                            <option selected disabled>Select Village</option>
-                        </select>
+                    <div class="card card-info row">
+                        <div class="card-header">
+                        <h3 class="card-title"></h3> 
+                        </div>
+                        <div class="row">       
+                            <div class="col-lg-3 form-group">
+                                <label>For Date</label>
+                                <span class="fa fa-asterisk"></span>
+                                <input type="date" name="for_date" class="form-control">
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label>Household Covered</label>
+                                <span class="fa fa-asterisk"></span>
+                                <input type="text" name="household_covered" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label>Highrisk Household</label>
+                                <span class="fa fa-asterisk"></span>
+                                <input type="text" name="highrisk_household" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-3 form-group">
-                        <label>For Date</label>
-                        <span class="fa fa-asterisk"></span>
-                        <input type="date" name="for_date" class="form-control">
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label>Household Covered</label>
-                        <span class="fa fa-asterisk"></span>
-                        <input type="text" name="household_covered" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label>Highrisk Household</label>
-                        <span class="fa fa-asterisk"></span>
-                        <input type="text" name="highrisk_household" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label>Screened M</label>
-                        <input type="text" name="screened_m" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label>Screened F</label>
-                        <input type="text" name="screened_f" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label>Screened O</label>
-                        <input type="text" name="screened_o" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <div class="card card-info row">
+                        <div class="card-header">
+                        <h3 class="card-title"></h3> 
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label>Screened M</label>
+                                <input type="text" name="screened_m" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label>Screened F</label>
+                                <input type="text" name="screened_f" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label>Screened O</label>
+                                <input type="text" name="screened_o" class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-3 form-group">
                         <label>ILI Found</label>

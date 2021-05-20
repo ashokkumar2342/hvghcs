@@ -36,10 +36,15 @@ use Symfony\Component\HttpKernel\DataCollector\collect;
 class AccountController extends Controller
 {
     Public function index(){
-    $admin=Auth::guard('admin')->user();	
-    $accounts = DB::select(DB::raw("select `a`.`id`, `a`.`first_name`, `a`.`last_name`, `a`.`email`, `a`.`mobile`, `a`.`status`, `r`.`name`
-             from `admins` `a`Inner Join `roles` `r` on `a`.`role_id` = `r`.`id`where`a`.`status` = 1 and `a`.`role_id` >= (Select `role_id` from `admins` where `id` = $admin->id)Order By `a`.`first_name`;")); 
-    	return view('admin.account.list',compact('accounts'));
+    
+    	return view('admin.account.list');
+    }
+    public function userList($value='')
+    {
+        $admin=Auth::guard('admin')->user(); 
+        $accounts = DB::select(DB::raw("select `a`.`id`, `a`.`first_name`, `a`.`last_name`, `a`.`email`, `a`.`mobile`, `a`.`status`, `r`.`name`
+             from `admins` `a`Inner Join `roles` `r` on `a`.`role_id` = `r`.`id`where`a`.`status` = 1 and `a`.`role_id` >= (Select `role_id` from `admins` where `id` = $admin->id)Order By `a`.`id`;")); 
+        return view('admin.account.user_list',compact('accounts'));
     }
 
     Public function form(Request $request){
@@ -60,14 +65,13 @@ class AccountController extends Controller
 
     
     public function sendSms($user_id)
-    { 
+    {   
+        $user_id=Crypt::decrypt($user_id);
         $users_detail = DB::select(DB::raw("select `first_name`, `mobile`, `password_plain` from `admins` where `id` = $user_id;"));
         event(new SmsEvent($users_detail[0]->mobile,'Dear '.$users_detail[0]->first_name.', your userid : '.$users_detail[0]->mobile.', password : '.$users_detail[0]->password_plain.' for HVGHCS. plz enter daily report on hvghcs.covidcarejhajjar.in District Administration Jhajjar'));
-    
-        return redirect()->back()->with(['message'=>'Message Send Successfully','class'=>'success']);
         
-        // $response=['status'=>1,'msg'=>'SMS Send Successfully'];
-        //     return response()->json($response);
+        $response=['status'=>1,'msg'=>'SMS Send Successfully'];
+            return response()->json($response);
     } 
 
     Public function store(Request $request){
