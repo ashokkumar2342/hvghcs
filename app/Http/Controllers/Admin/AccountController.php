@@ -129,7 +129,7 @@ class AccountController extends Controller
             $response["msg"]=$errors[0];
             return response()->json($response);// response as json
         }
-        $mobile =7903436369;
+        $mobile =9355805581;
         $name ='Sample-Name';
         $village ='Sample-village';
         event(new SmsEvent($mobile,'Dear '.$name.', Report Pending for village '.$village.'. Plz enter report. District Administration Jhajjar'));
