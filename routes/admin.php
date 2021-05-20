@@ -48,6 +48,7 @@ Route::group(['middleware' => 'admin'], function() {
 	    Route::get('form', 'AccountController@form')->name('admin.account.form');
 	    Route::post('store', 'AccountController@store')->name('admin.account.post');
 		Route::get('list', 'AccountController@index')->name('admin.account.list');
+		Route::get('user-list', 'AccountController@userList')->name('admin.account.user.list');
 		Route::get('send-sms/{uesr_id}', 'AccountController@sendSms')->name('admin.account.send.sms');
 		Route::post('list-user-generate', 'AccountController@listUserGenerate')->name('admin.account.list.user.generate');
 		Route::get('access', 'AccountController@access')->name('admin.account.access');
