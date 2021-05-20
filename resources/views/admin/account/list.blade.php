@@ -30,6 +30,7 @@
                   {{-- <th>Status</th>                   --}}
                   {{-- <th>Menu</th>                  
                   <th>Action</th> --}}
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,9 @@
                   <td>{{ $account->mobile }}</td> 
                   <td>{{ $account->email }}</td>
                   <td>{{ $account->name or '' }}</td>
+                  <td>
+                    <a href="{{ route('admin.account.send.sms',$account->id) }}" title="Send SMS" class="btn btn-primary btn-sm">Send SMS</a>
+                  </td>
                   {{-- <td>
                    
                   <a href="{{ route('admin.account.r_status',$account->id) }}" data-parent="tr" class="label {{ ($account->r_status == 1) ?'btn-success':'btn-danger'}} btn btn-xs">{{ ($account->r_status == 1)? 'A' : 'D' }}</a>

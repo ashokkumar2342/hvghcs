@@ -32,7 +32,7 @@ class ReportController extends Controller
         $districtId=$request->district;
         $blockId=$request->block;
         $villageId=$request->village;
-        $datas=Form3::where('state',$request->state)->get();
+        
         $path=Storage_path('fonts/');
         $defaultConfig = (new \Mpdf\Config\ConfigVariables())->getDefaults();
         $fontDirs = $defaultConfig['fontDir']; 
