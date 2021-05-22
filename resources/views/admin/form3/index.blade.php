@@ -18,7 +18,7 @@
                 {{ csrf_field() }}  
                     <div class="card card-info row">
                         <div class="card-header">
-                        <h3 class="card-title" style="font-size: 14px">Total No. Of Parson</h3> 
+                        <h3 class="card-title" style="font-size: 14px">Total No. Of Persons</h3> 
                         </div>
                         <div class="row"> 
                             <div class="col-lg-3 form-group">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="card card-info row">
                         <div class="card-header">
-                        <h3 class="card-title" style="font-size: 14px">Total No. Of Parson</h3> 
+                        <h3 class="card-title" style="font-size: 14px">Total No. Of Persons</h3> 
                         </div>
                         <div class="row">       
                             <div class="col-lg-4 form-group">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="card card-info row">
                         <div class="card-header">
-                        <h3 class="card-title" style="font-size: 14px">Total No. Of Parson</h3> 
+                        <h3 class="card-title" style="font-size: 14px">Total No. Of Persons</h3> 
                         </div>
                         <div class="row">
                             <div class="col-lg-4 form-group">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="card card-info row">
                         <div class="card-header">
-                        <h3 class="card-title" style="font-size: 14px">Total No. Of Parson</h3> 
+                        <h3 class="card-title" style="font-size: 14px">Total No. Of Persons</h3> 
                         </div>
                         <div class="row">
                             <div class="col-lg-2 form-group">
@@ -124,7 +124,7 @@
                     </div>
                     <div class="card card-info row">
                         <div class="card-header">
-                        <h3 class="card-title" style="font-size: 14px">Total No. Of Parson</h3> 
+                        <h3 class="card-title" style="font-size: 14px">Total No. Of Persons</h3> 
                         </div>
                         <div class="row">
                             <div class="col-lg-6 form-group">
@@ -139,7 +139,7 @@
                     </div> 
                     <div class="card card-info row">
                         <div class="card-header">
-                        <h3 class="card-title" style="font-size: 14px">Total No. Of Parson</h3> 
+                        <h3 class="card-title" style="font-size: 14px">Total No. Of Persons</h3> 
                         </div>
                         <div class="row">
                             <div class="col-lg-3 form-group">
