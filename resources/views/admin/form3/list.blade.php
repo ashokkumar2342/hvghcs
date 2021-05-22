@@ -2,7 +2,7 @@
 <table id="village_wise_list" class="table table-hover table-bordered">
 	<thead>
 		<tr>
-			<th>Village</th>
+			<th>Date</th>
 			<th>Household Covered</th>
 			<th>Highrisk Household</th>
 			<th>Action</th>
@@ -11,7 +11,7 @@
 	<tbody>
 		@foreach ($Form3s as $Form3)
 		<tr>
-			<td>{{ $Form3->Villages->name_e }}</td>
+			<td>{{ $Form3->Villages->fordate }}</td>
 			<td>{{ $Form3->household_covered }}</td>
 			<td>{{ $Form3->household_covered }}</td>
 			<td>

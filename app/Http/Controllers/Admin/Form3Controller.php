@@ -29,7 +29,7 @@ class Form3Controller extends Controller
     }
 
 
-    public function Store(Request $request,$id=null)
+    public function Store(Request $request,$id=0)
     {  
        $rules=[
             'states' => 'required', 
@@ -50,14 +50,16 @@ class Form3Controller extends Controller
         return response()->json($response);// response as json
       }
 
-
-      $record_exist =DB::select(DB::raw("select count(*) as `tcount` from `form3` where `fordate` = '$request->for_date' and `village_id` = $request->village;"));
-      if($record_exist[0]->tcount > 0){
-        $response=array();
-        $response["status"]=0;
-        $response["msg"]="Record Already Submitted";
-        return response()->json($response);// response as json  
+      if($id==0){
+        $record_exist =DB::select(DB::raw("select count(*) as `tcount` from `form3` where `fordate` = '$request->for_date' and `village_id` = $request->village;"));
+        if($record_exist[0]->tcount > 0){
+          $response=array();
+          $response["status"]=0;
+          $response["msg"]="Record Already Submitted";
+          return response()->json($response);// response as json  
+        }  
       }
+      
 
       $Form3= Form3::firstOrNew(['id'=>$id]);
       $Form3->states_id=$request->states;
@@ -94,11 +96,15 @@ class Form3Controller extends Controller
       return response()->json($response);
       
     }
+
+
     public function villageWiseList(Request $request)
     {
       $Form3s= Form3::where('village_id',$request->id)->get();
       return view('admin.form3.list',compact('Form3s')); 
     }
+
+    
     public function delete($id)
     {
        $Form3s= Form3::find($id);
