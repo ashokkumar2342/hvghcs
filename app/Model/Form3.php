@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form3 extends Model
 {
-      // protected $fillable=['id'];
+      protected $fillable=['id'];
       protected $table='form3';
       public $timestamps=false;
 
