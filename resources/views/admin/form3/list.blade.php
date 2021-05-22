@@ -15,8 +15,8 @@
 			<td>{{ $Form3->household_covered }}</td>
 			<td>{{ $Form3->household_covered }}</td>
 			<td>
-			<a href="" title="" class="btn btn-xs btn-info"><i class="fa fa-edit"></i></a> 
-			<a  select-triger="village_select_box" success-popup="true" onclick="callAjax(this,'{{ route('admin.form3.delete',$Form3->id) }}')" title="" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+			<a onclick="callPopupLarge(this,'{{ route('admin.form3.edit',$Form3->id) }}')" title="Edit" class="btn btn-xs btn-info"><i class="fa fa-edit"></i></a> 
+			<a  select-triger="village_select_box" success-popup="true" onclick="callAjax(this,'{{ route('admin.form3.delete',$Form3->id) }}')" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr> 
 		@endforeach

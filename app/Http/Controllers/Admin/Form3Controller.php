@@ -29,7 +29,7 @@ class Form3Controller extends Controller
     }
 
 
-    public function Store(Request $request)
+    public function Store(Request $request,$id=null)
     {  
        $rules=[
             'states' => 'required', 
@@ -59,7 +59,7 @@ class Form3Controller extends Controller
         return response()->json($response);// response as json  
       }
 
-      $Form3= new Form3();
+      $Form3= Form3::firstOrNew(['id'=>$id]);
       $Form3->states_id=$request->states;
       $Form3->districts_id=$request->district; 
       $Form3->blocks_id=$request->block; 
@@ -105,6 +105,12 @@ class Form3Controller extends Controller
        $Form3s->delete();
        $response=['status'=>1,'msg'=>'Delete Successfully'];
       return response()->json($response);
+
+    }
+    public function edit($id)
+    { 
+       $Form3= Form3::find($id);
+       return view('admin.form3.edit',compact('Form3')); 
 
     } 
 }
