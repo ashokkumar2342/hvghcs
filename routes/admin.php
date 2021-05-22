@@ -190,6 +190,8 @@ Route::group(['middleware' => 'admin'], function() {
  	Route::group(['prefix' => 'form3'], function() {
         Route::get('/', 'Form3Controller@index')->name('admin.form3.index');
         Route::post('store', 'Form3Controller@Store')->name('admin.form3.store');
+        Route::get('village-wise-list', 'Form3Controller@villageWiseList')->name('admin.form3.village.wise.list');
+        Route::get('delete/{id}', 'Form3Controller@delete')->name('admin.form3.delete');
                 
 
  	});

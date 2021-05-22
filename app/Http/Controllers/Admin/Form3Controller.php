@@ -93,5 +93,18 @@ class Form3Controller extends Controller
       $response=['status'=>1,'msg'=>'Submit Successfully'];
       return response()->json($response);
       
+    }
+    public function villageWiseList(Request $request)
+    {
+      $Form3s= Form3::where('village_id',$request->id)->get();
+      return view('admin.form3.list',compact('Form3s')); 
+    }
+    public function delete($id)
+    {
+       $Form3s= Form3::find($id);
+       $Form3s->delete();
+       $response=['status'=>1,'msg'=>'Delete Successfully'];
+      return response()->json($response);
+
     } 
 }

@@ -14,4 +14,8 @@ class Form3 extends Model
       {
       	 return $this->hasOne('App\Model\State','id','state_id');
       }
+      public function Villages()
+      {
+      	 return $this->hasOne('App\Model\Village','id','village_id');
+      }
 }

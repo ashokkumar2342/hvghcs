@@ -14,7 +14,7 @@
         </div> 
         <div class="card card-info"> 
             <div class="card-body">
-                <form action="{{ route('admin.form3.store') }}" method="post" class="add_form">
+                <form action="{{ route('admin.form3.store') }}" method="post" class="add_form" no-reset="true" select-triger="village_select_box">
                 {{ csrf_field() }}  
                     <div class="card card-info row">
                         <div class="card-header">
@@ -48,7 +48,7 @@
                             <div class="col-lg-3 form-group">
                                 <label for="exampleInputEmail1">Village</label>
                                 <span class="fa fa-asterisk"></span>
-                                <select name="village" class="form-control select2" id="village_select_box" multiselect-form="true">
+                                <select name="village" class="form-control select2" id="village_select_box" multiselect-form="true" village_wise_list="village_wise_list" onchange="callAjax(this,'{{ route('admin.form3.village.wise.list') }}','village_wise_list')">
                                 <option selected disabled>Select Village</option>
                                 </select>
                             </div>
@@ -196,7 +196,12 @@
                      </div> 
                 </div>
             </form>
-            </div> 
+                
+                    <div class="table-responsive" id="village_wise_list">
+                     
+                    </div>
+                 
+            </div>
         </div>
     </div> 
     </section>
