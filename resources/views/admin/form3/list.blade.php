@@ -11,7 +11,7 @@
 	<tbody>
 		@foreach ($Form3s as $Form3)
 		<tr>
-			<td>{{ $Form3->Villages->fordate }}</td>
+			<td>{{ $Form3->fordate }}</td>
 			<td>{{ $Form3->household_covered }}</td>
 			<td>{{ $Form3->household_covered }}</td>
 			<td>
